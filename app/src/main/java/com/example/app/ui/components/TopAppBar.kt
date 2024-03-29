@@ -18,6 +18,8 @@ import androidx.core.view.WindowCompat
 import com.example.app.ui.theme.Blue200
 import com.example.app.ui.theme.Blue700
 
+//标题栏高度
+val appBarHeight = 56.dp
 @Composable
 fun TopAppBar(
     modifier: Modifier = Modifier,
@@ -25,8 +27,7 @@ fun TopAppBar(
     content: @Composable () -> Unit
 ) {
 
-    //标题栏高度
-    val appBarHeight = 56.dp
+
     //转换状态栏高度为dp
     val statusBarHeightDp = with(LocalDensity.current) {
         statusBarHeight.toDp()
