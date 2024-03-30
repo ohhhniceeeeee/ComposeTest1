@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.example.app.ui.components.NavHostApp
 import com.example.app.ui.screens.MainFrame
 import com.example.app.ui.theme.AppTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -55,7 +56,7 @@ class MainActivity : ComponentActivity() {
                         .statusBarsPadding(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MainFrame(statusBarHeight)
+                    NavHostApp(statusBarHeight = statusBarHeight)
                 }
             }
         }

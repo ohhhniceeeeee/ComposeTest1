@@ -18,10 +18,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.app.model.entity.ArticleEntity
 
+
+/**
+ * 文章列表item
+ */
 @Composable
-fun ArticleItem(articleEntity: ArticleEntity) {
+fun ArticleItem(
+    articleEntity: ArticleEntity,
+    modifier: Modifier = Modifier
+) {
     Column(
-        modifier = Modifier.padding(8.dp)
+        modifier = modifier.padding(8.dp)
     ) {
         Text(
             text = articleEntity.title,
@@ -50,9 +57,9 @@ fun ArticleItem(articleEntity: ArticleEntity) {
                 overflow = TextOverflow.Ellipsis
             )
         }
-        
+
         Spacer(modifier = Modifier.height(8.dp))
-        
+
         HorizontalDivider()
     }
 }

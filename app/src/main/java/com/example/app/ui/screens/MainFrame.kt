@@ -39,7 +39,10 @@ import com.google.accompanist.insets.ProvideWindowInsets
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
-fun MainFrame(statusBarHeight: Int) {
+fun MainFrame(
+    statusBarHeight: Int,
+    onNavigateToArticle: () -> Unit
+) {
 
     val navigationItems = listOf(
         NavigationItem(title = "学习", icon = Icons.Filled.Home),
@@ -86,7 +89,7 @@ fun MainFrame(statusBarHeight: Int) {
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
             when (currentNavigationIndex) {
-                0 -> StudyScreen(statusBarHeight)
+                0 -> StudyScreen(statusBarHeight,onNavigateToArticle = onNavigateToArticle)
                 1 -> TaskScreen()
                 2 -> MineScreen(statusBarHeight)
             }

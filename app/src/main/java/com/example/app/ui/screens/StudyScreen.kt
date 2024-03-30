@@ -2,6 +2,7 @@ package com.example.app.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -56,7 +57,8 @@ fun StudyScreen(
     statusBarHeight: Int,
     viewModel: MainViewModel = viewModel(),
     articleViewModel: ArticleViewModel = viewModel(),
-    videoViewModel: VideoViewModel = viewModel()
+    videoViewModel: VideoViewModel = viewModel(),
+    onNavigateToArticle: () -> Unit
 ) {
     Column(modifier = Modifier) {
 
@@ -170,13 +172,14 @@ fun StudyScreen(
             if (viewModel.currentTypeIndex == 0) {
                 //文章列表
                 items(articleViewModel.list) { article ->
-                    ArticleItem(articleEntity = article)
+                    ArticleItem(articleEntity = article, modifier = Modifier.clickable {
+                        onNavigateToArticle()
+                    })
                 }
             } else {
                 //视频列表
                 items(videoViewModel.list) { videoEntity ->
                     VideoItem(videoEntity)
-
                 }
             }
         }
@@ -185,9 +188,3 @@ fun StudyScreen(
     }
 }
 
-
-@Preview
-@Composable
-fun StudyScreenPreview() {
-    StudyScreen(30)
-}
