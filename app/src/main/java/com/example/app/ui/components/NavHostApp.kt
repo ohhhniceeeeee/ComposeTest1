@@ -46,7 +46,9 @@ fun NavHostApp(statusBarHeight: Int) {
             exitTransition = {
                 slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right)
             }) {
-            ArticleDetailScreen()
+            ArticleDetailScreen(onBack = {
+                navController.popBackStack()
+            })
         }
 
 
